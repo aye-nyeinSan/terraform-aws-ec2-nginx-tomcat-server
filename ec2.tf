@@ -21,7 +21,10 @@ resource "aws_instance" "public_web_server" {
   associate_public_ip_address = true
 
   vpc_security_group_ids = [aws_security_group.my_sg.id]
-   user_data = file("${path.root}/script/nginx_install.tpl")
+  #  user_data = file("${path.root}/script/nginx_install.tpl")
+  # user_data = file("${path.root}/script/Tomcat_install.tpl")
+   user_data = base64encode(join("\n", [for path in local.filePaths : file(path)]))
+   
 
 
   tags = {
