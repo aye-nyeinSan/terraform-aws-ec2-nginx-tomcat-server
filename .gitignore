@@ -1,0 +1,6 @@
+myKey.pem
+.terraform.lock.hcl
+.terraform/*
+instance_created.txt
+terraform.tfstate
+terraform.tfstate.backup
